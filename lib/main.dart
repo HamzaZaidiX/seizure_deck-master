@@ -1,15 +1,10 @@
 import 'dart:async';
-import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_background_service/flutter_background_service.dart';
-import 'package:flutter_background_service_android/flutter_background_service_android.dart';
-import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:seizure_deck/home.dart';
 import 'package:seizure_deck/services/notification_services.dart';
 import 'package:shake/shake.dart';
-import 'package:seizure_deck/seizure.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 late ShakeDetector checker;
 
@@ -27,11 +22,10 @@ Future<void> initializeService() async {
   await service.configure(
       iosConfiguration: IosConfiguration(),
       androidConfiguration: AndroidConfiguration(
-          onStart: onStart,
-          isForegroundMode: false,
-          autoStart: true,
-
-          ));
+        onStart: onStart,
+        isForegroundMode: false,
+        autoStart: true,
+      ));
 }
 
 class Login extends StatelessWidget {
@@ -147,7 +141,6 @@ void onStart(ServiceInstance service) async {
   // Initialize shake detection
   checker = ShakeDetector.autoStart(
     onPhoneShake: () {
-
       // Handle shake event in the background
       print("Shake detected in the background!");
 
