@@ -1,4 +1,4 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="pk.edu.iqra.seizuredeck.seizure_deck">
     <application
         android:label="seizure_deck"
         android:name="${applicationName}"
