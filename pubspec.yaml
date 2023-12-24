@@ -69,6 +69,10 @@ dependencies:
   http: ^1.1.2
   alarm: ^2.1.1
   android_alarm_manager_plus: ^3.0.3
+  toggle_switch: ^2.1.0
+  material_design_icons_flutter: ^7.0.7296
+
+
 
 
 
