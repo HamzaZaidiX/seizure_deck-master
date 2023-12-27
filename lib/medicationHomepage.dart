@@ -15,13 +15,12 @@ class medicationHomePage extends StatelessWidget {
           children: <Widget>[
             // Your app logo
             Image.asset(
-              'assets/LOGO.png', 
-              width: 175,
+              'assets/LOGO.png',              
               height: 175,
             ),
               Text(
     'Press + to add a Reminder!',
-    style: TextStyle(fontSize: 18, color: Color.fromARGB(255, 81, 81, 82)),
+    style: TextStyle(fontSize: 20, color: Color.fromARGB(255, 81, 81, 82)),
   ),
           ],
         ),

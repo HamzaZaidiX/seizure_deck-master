@@ -178,6 +178,7 @@ class Home extends StatelessWidget {
             title: Text("Homepage"),
           ),
           body: Center(
+            child: SingleChildScrollView(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -213,6 +214,7 @@ class Home extends StatelessWidget {
                   ),
                 ],
               )),
+        ),
         ),
       ),
     );

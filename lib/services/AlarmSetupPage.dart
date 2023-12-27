@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:file_picker/file_picker.dart';
 import 'package:android_alarm_manager_plus/android_alarm_manager_plus.dart';
-import 'package:alarm/alarm.dart';
 
 class AlarmSetupPage extends StatefulWidget {
   const AlarmSetupPage({Key? key}) : super(key: key);
@@ -11,6 +11,7 @@ class AlarmSetupPage extends StatefulWidget {
 
 class _AlarmSetupPageState extends State<AlarmSetupPage> {
   TimeOfDay selectedTime = TimeOfDay.now();
+  String selectedRingtone = 'Default Ringtone';
 
   Future<void> _setAlarm() async {
     final now = DateTime.now();
@@ -41,6 +42,27 @@ class _AlarmSetupPageState extends State<AlarmSetupPage> {
     // This method will be executed when the alarm triggers
     print('Alarm triggered for medication reminder!');
     // You can show a notification or perform other actions here
+  }
+
+  Future<void> _setRingtone() async {
+    try {
+      // Allow user to select an audio file
+      FilePickerResult? result = await FilePicker.platform.pickFiles(
+        type: FileType.audio,
+        allowMultiple: false,
+      );
+
+      if (result != null) {
+        String? filePath = result.files.single.path;
+        if (filePath != null) {
+          setState(() {
+            selectedRingtone = filePath;
+          });
+        }
+      }
+    } catch (e) {
+      print('Error picking audio file: $e');
+    }
   }
 
   @override
@@ -77,6 +99,13 @@ class _AlarmSetupPageState extends State<AlarmSetupPage> {
               onPressed: _setAlarm,
               child: const Text('Set Alarm'),
             ),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: _setRingtone,
+              child: const Text('Select Ringtone'),
+            ),
+            SizedBox(height: 10),
+            Text('Selected Ringtone: $selectedRingtone'),
           ],
         ),
       ),
