@@ -9,6 +9,7 @@ import '/services/AlarmSetupPage.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
+
 enum MedicineType { Syrup, Tablets, Syringe }
 
 class medicationReminder extends StatefulWidget {
@@ -104,7 +105,6 @@ final TextEditingController dosageController = TextEditingController();
   DateTime? datePicked2;
   @override
   Widget build(BuildContext context) {
-    var label;
     return Scaffold(
       appBar: AppBar(
         title: Text('Add New Medication'),
@@ -524,9 +524,47 @@ Padding(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   ElevatedButton(
-                    onPressed: () {},
-                    child: const Text('Save'),
-                  ),
+  onPressed: () {
+    // For Validation if clicked on Save button then Error or Next Page will Navigate
+    // if (medicineController.text.isEmpty ||
+    //     dosageController.text.isEmpty ||
+    //     datePicked1 == null ||
+    //     datePicked2 == null ||
+    //     selectedMedicine == null ||
+    //     selectedOption.isEmpty) {
+    //   showDialog(
+    //     context: context,
+    //     builder: (context) {
+    //       return AlertDialog(
+    //         title: const Text('Error'),
+    //         content: const Text('Please fill all the required fields to proceed.'),
+    //         actions: [
+    //           TextButton(
+    //             onPressed: () {
+    //               Navigator.pop(context);
+    //             },
+    //             child: const Text('OK'),
+    //           ),
+    //         ],
+    //       );
+    //     },
+    //   );
+    // } else {
+    //   // Save data logic goes here
+    //   // This section is reached when all required fields are filled
+    //   // Save the data or proceed to the next step
+    //   // For example, navigate to a new page with the collected data:
+    //   // Navigator.push(
+    //   //   context,
+    //   //   MaterialPageRoute(
+    //   //     builder: (context) => GenerateMedication(),
+    //   //   ),
+    //   // );
+    // }
+  },
+  child: const Text('Save'),
+),
+
                 ],
               ),
               ),
